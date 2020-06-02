@@ -44,6 +44,7 @@ em {
 #container {
     width: 1080px;
     margin: 0 auto;
+    
 }
 
 header {
@@ -53,7 +54,7 @@ header {
 }
 
 section {
-    background-color: #fafafa;
+    background-color: #ccc;
     padding: 5px;
     overflow: auto;
     /*float: left;*/
