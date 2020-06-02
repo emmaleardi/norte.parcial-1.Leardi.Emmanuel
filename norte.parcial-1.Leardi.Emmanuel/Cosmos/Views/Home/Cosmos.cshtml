@@ -30,42 +30,42 @@
 
         </tr>
     </table>
-</div>
+
     <div id="resultado">
 
     </div>
+</div>
+    @section scripts{
+        <script>
+            var constelaciones = new Array();
 
-@section scripts{
-    <script>
-      var constelaciones = new Array();
+            function Constelacion() {
+                this.setsiglo = function (value) { this._siglo = value; }
+                this.getsiglo = function () { return this._siglo; }
 
-      function Constelacion() {
-          this.setsiglo = function (value) { this._codigo = value; }
-          this.getsiglo = function () { return this._codigo; }
-
-          this.setnombre = function (value) { this._nombre = value; }
-          this.getNombre = function () { return this._nombre; }
-      }
-
-
-      $("#btnsave").click(function () {
-          var con = new Constelacion();
-          con.setsiglo($("#txtcodigo").val());
-          con.setnombre($("#txtnombre").val());
-          con.push(pro);
-
-      })
-
-      $("#btnlist").click(function () {
-
-          var ctl = $("#resultado");
-          ctl.html("");
-          $.each(constelaciones, function (i, e) {
-              ctl.append("Codigo " + e.getsiglo() + " - " + e.getNombre() + ".</br>");
-          });
+                this.setnombre = function (value) { this._nombre = value; }
+                this.getnombre = function () { return this._nombre; }
+            }
 
 
-      })
+            $("#btnsave").click(function () {
+                var con = new Constelacion();
+                con.setsiglo($("#txtsiglo").val());
+                con.setnombre($("#txtnombre").val());
+                constelaciones.push(con);
 
-</script>
+            })
+
+            $("#btnlist").click(function () {
+
+                var ctl = $("#resultado");
+                ctl.html("");
+                $.each(constelaciones, function (i, e) {
+                    ctl.append("Siglo " + e.getsiglo() + " - " + e.getnombre() + ".</br>");
+                });
+
+
+            })
+
+        </script>
     }
